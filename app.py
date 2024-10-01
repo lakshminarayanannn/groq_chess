@@ -41,7 +41,7 @@ def reset_app():
     for key in keys_to_reset:
         if key in st.session_state:
             del st.session_state[key]
-    st.experimental_rerun()
+    st.rerun()
 
 def main():
     st.set_page_config(
@@ -88,7 +88,7 @@ def main():
                 os.environ["GROQ_API_KEY"] = st.session_state.api_key
                 st.session_state.api_key_set = True
                 st.success("API Key set successfully! Proceeding to model selection...")
-                st.experimental_rerun()
+                st.rerun()
             else:
                 st.error("Please enter a valid Groq API Key.")
         st.stop()
@@ -111,7 +111,7 @@ def main():
                 st.session_state.selected_model = selected_model
                 st.session_state.model_selected = True
                 st.success(f"Model '{selected_model}' selected successfully! Starting the game...")
-                st.experimental_rerun()
+                st.rerun()
         else:
             st.error("No active models found or failed to fetch models.")
             st.stop()
@@ -151,7 +151,7 @@ def main():
             logging.info(f"Game Over: {game.result}")
             if st.button("Restart Game"):
                 ui.reset_game()
-                st.experimental_rerun()
+                st.rerun()
             st.button("Reset Game Setup", on_click=reset_app)
 
 if __name__ == "__main__":

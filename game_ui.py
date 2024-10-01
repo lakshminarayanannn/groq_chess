@@ -147,7 +147,7 @@ class GameUI:
                             self.st.success("PGN file imported successfully.")
                         else:
                             self.st.error("Failed to import PGN file.")
-                    self.st.experimental_rerun()
+                    self.st.rerun()
 
     def main_game(self):
         board = self.game.board
@@ -167,10 +167,10 @@ class GameUI:
             self.st.write("### Actions")
             if self.st.button("Undo Move"):
                 self.game.undo_move()
-                self.st.experimental_rerun()
+                self.st.rerun()
             if self.st.button("Redo Move"):
                 self.game.redo_move()
-                self.st.experimental_rerun()
+                self.st.rerun()
             self.st.write("### Export Game")
             if self.st.button("Download PGN"):
                 pgn_string = self.game.export_pgn()
@@ -210,7 +210,7 @@ class GameUI:
                 logging.info(f"Game Over: {self.game.result}")
                 if self.st.button("Restart Game"):
                     self.reset_game()
-                    self.st.experimental_rerun()
+                    self.st.rerun()
                 self.st.stop()
             if board.turn == chess.WHITE:
                 player_type = self.game.player_white_type
@@ -226,7 +226,7 @@ class GameUI:
                             if move:
                                 self.game.make_move(move)
                                 self.suggestions = []
-                                self.st.experimental_rerun()
+                                self.st.rerun()
                             else:
                                 self.st.error("Invalid or illegal move. Please try again.")
                                 logging.warning(f"Invalid move entered by {player_name}: {user_move.strip()}")
@@ -244,7 +244,7 @@ class GameUI:
                             logging.info(f"AI played move: {ai_move.uci()}")
                             if self.mode == 'Chess Teaching' and explanation:
                                 self.st.markdown(f"**Explanation:** {explanation}")
-                            self.st.experimental_rerun()
+                            self.st.rerun()
             else:
                 player_type = self.game.player_black_type
                 player_name = self.game.player_black
@@ -259,7 +259,7 @@ class GameUI:
                             if move:
                                 self.game.make_move(move)
                                 self.suggestions = []
-                                self.st.experimental_rerun()
+                                self.st.rerun()
                             else:
                                 self.st.error("Invalid or illegal move. Please try again.")
                                 logging.warning(f"Invalid move entered by {player_name}: {user_move.strip()}")
@@ -272,7 +272,7 @@ class GameUI:
                             logging.info(f"AI played move: {ai_move.uci()}")
                             if self.mode == 'Chess Teaching' and explanation:
                                 self.st.markdown(f"**Explanation:** {explanation}")
-                            self.st.experimental_rerun()
+                            self.st.rerun()
         with suggestions_col:
             if self.mode == 'Chess Teaching' and self.suggestions:
                 self.st.write("### AI Move Suggestions:")
@@ -284,7 +284,7 @@ class GameUI:
                             if move:
                                 self.game.make_move(move)
                                 self.suggestions = []
-                                self.st.experimental_rerun()
+                                self.st.rerun()
                             else:
                                 self.st.error("Invalid move selected from suggestions.")
                                 logging.warning(f"Invalid suggestion move selected: {suggestion['move']}")
