@@ -10,7 +10,7 @@ import time
 import re
 import logging
 from io import StringIO, BytesIO 
-from .utils import set_custom_css, display_header
+from utils import set_custom_css, display_header
 
 class AIModule:
     def __init__(self, st, model="llama-3.1-8b-instant", temperature=0.1, max_tokens=700):
