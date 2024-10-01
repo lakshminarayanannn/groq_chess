@@ -53,6 +53,50 @@ This command starts the Streamlit application and makes it accessible at `http:/
 1. Launch the application by accessing `http://localhost:8080` in your web browser.
 2. Enter your Groq API key, select an AI model, and start playing the chess game.
 
+## Docker
+
+To make it easier to run the application without setting up a local environment, you can use the pre-built Docker image.
+
+### Docker Hub
+
+You can pull the Docker image directly from Docker Hub:
+
+- **Docker Hub Link**: [https://hub.docker.com/r/rlakshmin/gamify](https://hub.docker.com/r/rlakshmin/gamify)
+
+### Pull the Docker Image
+
+To pull the latest Docker image for this project, run the following command:
+
+```bash
+docker pull rlakshmin/gamify:latest
+```
+
+### Run the Application with Docker
+
+To run the application using Docker, use the following command:
+
+```bash
+docker run -p 8501:8501 rlakshmin/gamify:latest
+```
+
+This command will run the application and expose it on port `8501`. You can then access the application in your web browser at `http://localhost:8501`.
+
+## Features
+
+### Current Features
+
+- **AI Move Suggestions**: Get AI-powered suggestions for the next move during your gameplay.
+- **AI vs AI**: Simulate battles between AI models to observe strategies and outcomes.
+- **Human vs AI**: Play against the AI, enhancing your own strategy and understanding.
+- **Timer Support**: Utilize a timer for more dynamic and time-sensitive gameplay, similar to traditional chess tournaments.
+
+### Future Developments
+
+1. **Score Prediction**: Real-time board evaluation in pawn units to show the balance of power between players.
+2. **Winning Probability**: Dynamic calculation of each player's chances of winning based on the current game state.
+3. **Blunder Detection**: Alerts players to critical mistakes and explains how the position has worsened, along with suggestions for improvement.
+4. **Opening Explorer**: Provides success rates and insights into various openings based on historical data and similar game outcomes.
+
 ## Contributing
 
 If you'd like to contribute to this project, please follow these steps:
