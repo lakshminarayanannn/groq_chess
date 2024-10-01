@@ -6,7 +6,7 @@ import time
 import re
 import logging
 from io import StringIO, BytesIO
-from utils import set_custom_css, display_header
+from .utils import set_custom_css, display_header
 
 class ChessGame:
     def __init__(self,st):

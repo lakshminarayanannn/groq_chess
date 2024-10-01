@@ -1,9 +1,8 @@
 streamlit
-requests==2.31.0
-python-dotenv==1.0.0
+requests
+python-dotenv
 numpy 
 chess
 langchain-groq
 langchain
-streamlit-audiorecorder==0.0.5
 matplotlib

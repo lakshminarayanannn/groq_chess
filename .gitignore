@@ -1,0 +1,4 @@
+__pycache__/
+groq/
+static/
+ai_responses.log

@@ -9,7 +9,7 @@ import logging
 from io import StringIO, BytesIO  
 from chess_game import ChessGame
 from ai_module import AIModule
-from utils import set_custom_css, display_header
+from .utils import set_custom_css, display_header
 
 def get_base64_image(image_path):
     try:
